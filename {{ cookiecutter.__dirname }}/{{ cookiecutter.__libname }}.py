@@ -17,25 +17,22 @@
 """
 
 from micropython import const
-from adafruit_bus_device import i2c_device
-from adafruit_register.i2c_struct import ROUnaryStruct, UnaryStruct
-from adafruit_register.i2c_bits import RWBits
+from i2c_helpers import CBits, RegisterStruct
 
 try:
-    from busio import I2C
     from typing import Tuple
 except ImportError:
     pass
 
 
 __version__ = "0.0.0+auto.0"
-__repo__ = "https://github.com/jposada202020/CircuitPython_{{ cookiecutter.library_name | upper }}.git"
+__repo__ = "https://github.com/jposada202020/MicroPython_{{ cookiecutter.library_name | upper }}.git"
 
 
 class {{ cookiecutter.library_name | upper }}:
     """Driver for the {{ cookiecutter.library_name | upper }} Sensor connected over I2C.
 
-    :param ~busio.I2C i2c_bus: The I2C bus the {{ cookiecutter.library_name | upper }} is connected to.
+    :param ~machine.I2C i2c: The I2C bus the {{ cookiecutter.library_name | upper }} is connected to.
     :param int address: The I2C device address. Defaults to :const:`0x69`
 
     :raises RuntimeError: if the sensor is not found
@@ -47,14 +44,14 @@ class {{ cookiecutter.library_name | upper }}:
 
     .. code-block:: python
 
-        import board
+        from machine import Pin, I2C
         import {{ cookiecutter.library_name}}
 
     Once this is done you can define your `board.I2C` object and define your sensor object
 
     .. code-block:: python
 
-        i2c = board.I2C()  # uses board.SCL and board.SDA
+        i2c = I2C(sda=Pin28), scl=Pin(3))
         {{ cookiecutter.library_name }} = {{ cookiecutter.library_name}}.{{ cookiecutter.library_name | upper }}(i2c)
 
     Now you have access to the attributes
@@ -63,8 +60,9 @@ class {{ cookiecutter.library_name | upper }}:
 
     """
 
-    def __init__(self, i2c_bus: I2C, address: int = xxx) -> None:
-        self.i2c_device = i2c_device.I2CDevice(i2c_bus, address)
+    def __init__(self, i2c: I2C, address: int = xxx) -> None:
+        self._i2c = i2c
+        self._address = address
 
         if self._device_id != xxx:
             raise RuntimeError("Failed to find {{ cookiecutter.library_name | upper }}")

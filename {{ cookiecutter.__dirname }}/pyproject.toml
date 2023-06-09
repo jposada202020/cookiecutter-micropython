@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 {# put keywords into an iterable list, based on word wrapping #}
-{%- set kw_list = namespace(kw_list=[], default=["sensor", "blinka", "circuitpython", "micropython"]) -%}
+{%- set kw_list = namespace(kw_list=[], default=["sensor", "micropython"]) -%}
 {%- do kw_list.default.append(cookiecutter.library_name|lower|replace(" ", "-")) -%}
 {%- set user_kws = cookiecutter.library_keywords.split(" ") -%}
 {%- do kw_list.default.extend(user_kws|reject("==", "")) -%}
@@ -20,14 +20,14 @@ requires = [
 ]
 
 [project]
-name = "circuitpython-{{ lib_touse }}"
+name = "micropython-{{ lib_touse }}"
 description = "{{ cookiecutter.library_description }}"
 version = "0.0.0+auto.0"
 readme = "README.rst"
 authors = [
-    {name = "JDM", email = "xxx@mailmeto.mozmail.com"}
+    {name = "JDM", email = "xxyx@mailmeto.mozmail.com"}
 ]
-urls = {Homepage = "https://github.com/jposada202020/CircuitPython_{{ lib_touse | upper }}"}
+urls = {Homepage = "https://github.com/jposada202020/MicroPython_{{ lib_touse | upper }}"}
 keywords = [
 {% for kw_list_keyword in kw_list.default %}    "{{ kw_list_keyword }}",
 {% endfor -%}
