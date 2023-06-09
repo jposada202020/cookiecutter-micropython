@@ -60,7 +60,7 @@ class {{ cookiecutter.library_name | upper }}:
 
     """
 
-    def __init__(self, i2c: I2C, address: int = xxx) -> None:
+    def __init__(self, i2c, address: int = xxx) -> None:
         self._i2c = i2c
         self._address = address
 
