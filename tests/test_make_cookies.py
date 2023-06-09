@@ -43,9 +43,9 @@ def compare_template_dirs(*, library_name='test', library_prefix=None):
 
     cookie_template_path = working_dir / "{{ cookiecutter.__dirname }}"
     if library_prefix:
-        generated_folder_name = "{}_CircuitPython_{}".format(library_prefix, library_name)
+        generated_folder_name = "{}_MicroPython_{}".format(library_prefix, library_name)
     else:
-        generated_folder_name = "CircuitPython_{}".format(library_name)
+        generated_folder_name = "MicroPython_{}".format(library_name)
 
     generated_path = output_dir / generated_folder_name
     assert generated_path.exists()
@@ -56,12 +56,12 @@ def compare_template_dirs(*, library_name='test', library_prefix=None):
     for file in cookie_template_path.iterdir():
         if '{' in file.name:
             if not library_prefix:
-                base_name = file.with_name('CircuitPython_{}'.format(library_name))
+                base_name = file.with_name('MicroPython_{}'.format(library_name))
                 template_files.add(
                     base_name.with_suffix(file.suffix).name
                 )
             else:
-                base_name = file.with_name('{}_CircuitPython_{}'.format(
+                base_name = file.with_name('{}_MicroPython_{}'.format(
                     library_prefix,
                     library_name
                 ))
@@ -95,7 +95,7 @@ def test_new_cookiecutter_only_required_entries():
         extra_context=test_context
     )
 
-    assert os.listdir(output_dir)[0] == 'Adafruit_CircuitPython_test'
+    assert os.listdir(output_dir)[0] == 'Adafruit_MicroPython_test'
     assert compare_template_dirs(library_prefix="Adafruit")
 
 def test_new_cookiecutter_all_entries():

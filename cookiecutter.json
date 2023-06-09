@@ -2,7 +2,7 @@
     "target_bundle": [
         "Adafruit",
         "Community",
-        "CircuitPython Org",
+        "MicroPython Org",
         "test"
     ],
     "library_name": null,
@@ -11,8 +11,8 @@
     "requires_bus_device": "",
     "requires_register": "",
     "other_requirements": "",
-    "sphinx_docs":  "{%- if cookiecutter.target_bundle == 'Adafruit' or cookiecutter.target_bundle == 'CircuitPython Org' -%} yes {%- else -%} no {%- endif -%}",
+    "sphinx_docs":  "{%- if cookiecutter.target_bundle == 'Adafruit' or cookiecutter.target_bundle == 'MicroPython Org' -%} yes {%- else -%} no {%- endif -%}",
     "_extensions": ["jinja2.ext.do"],
-    "__dirname": "CircuitPython_{{ cookiecutter.library_name| upper |replace(' ', '_') }}",
+    "__dirname": "MicroPython_{{ cookiecutter.library_name| upper |replace(' ', '_') }}",
     "__libname": "{{ cookiecutter.library_name | lower | replace(' ', '_') }}"
 }
