@@ -3,12 +3,12 @@
 # SPDX-License-Identifier: MIT
 
 import time
-import board
-import {{ cookiecutter.library_name}}
+from machine import Pin, I2C
+from micropython_{{ cookiecutter.library_name}} import {{ cookiecutter.library_name}}
 
-i2c = board.I2C()  # uses board.SCL and board.SDA
+i2c = I2C(sda=Pin(2), scl=Pin(3))  # Correct I2C pins for RP2040
 xxx = {{cookiecutter.library_name}}.{{ cookiecutter.library_name | upper }}(i2c)
 
 while True:
-    #print("Pressure: {:.2f}hPa".format(lps.pressure))
+
     time.sleep(0.5)

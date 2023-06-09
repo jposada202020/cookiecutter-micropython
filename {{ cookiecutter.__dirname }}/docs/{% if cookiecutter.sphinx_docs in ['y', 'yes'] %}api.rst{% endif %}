@@ -2,5 +2,11 @@
 =========================================
 
 
-.. automodule:: {{ cookiecutter.library_name | lower | replace(" ", "_") }}
+.. automodule:: micropython_{{ cookiecutter.library_name | lower | replace(" ", "_") }}
+    :members:
+
+.. automodule:: micropython_{{ cookiecutter.library_name | lower | replace(" ", "_") }}.{{ cookiecutter.library_name | lower | replace(" ", "_") }}
+    :members:
+
+.. automodule:: micropython_{{ cookiecutter.library_name | lower | replace(" ", "_") }}.i2c_helpers.py
     :members:

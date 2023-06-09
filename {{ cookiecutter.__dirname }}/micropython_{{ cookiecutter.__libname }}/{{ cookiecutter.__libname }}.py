@@ -17,7 +17,7 @@
 """
 
 from micropython import const
-from i2c_helpers import CBits, RegisterStruct
+from micropython_{{ cookiecutter.__libname }}.i2c_helpers import CBits, RegisterStruct
 
 try:
     from typing import Tuple

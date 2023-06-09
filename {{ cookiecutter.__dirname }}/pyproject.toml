@@ -48,4 +48,3 @@ py-modules = ["{{ lib_touse }}"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
-optional-dependencies = {optional = {file = ["optional_requirements.txt"]}}
