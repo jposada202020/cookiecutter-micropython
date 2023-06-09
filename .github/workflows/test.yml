@@ -1,0 +1,45 @@
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft, written for Adafruit Industries
+#
+# SPDX-License-Identifier: MIT
+
+name: Test cookiecutter Generation
+
+on: [pull_request, push]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        python-version:
+        - '3.7'
+        - '3.x'
+
+        os-version:
+        - ubuntu-latest
+        - windows-latest
+        - macos-latest
+
+    runs-on: ${{ matrix.os-version }}
+    steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Versions
+      run: |
+        python3 --version
+    - name: Checkout Current Repo
+      uses: actions/checkout@v3
+      with:
+        submodules: true
+    - name: Install deps
+      run: |
+        pip install --upgrade pip
+        pip install -r tests_requirements.txt
+    - name: Run cookiecutter tests
+      run: |
+        pytest -v

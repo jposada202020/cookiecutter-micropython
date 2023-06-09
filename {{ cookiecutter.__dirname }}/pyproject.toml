@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: Copyright (c) {% now 'utc', '%Y' %} Jose D. Montoya
+#
+# SPDX-License-Identifier: MIT
+
+{# put keywords into an iterable list, based on word wrapping #}
+{%- set kw_list = namespace(kw_list=[], default=["sensor", "blinka", "circuitpython", "micropython"]) -%}
+{%- do kw_list.default.append(cookiecutter.library_name|lower|replace(" ", "-")) -%}
+{%- set user_kws = cookiecutter.library_keywords.split(" ") -%}
+{%- do kw_list.default.extend(user_kws|reject("==", "")) -%}
+{%- set wrapped = kw_list.default|unique|join(" ")|wordwrap(break_long_words=False) -%}
+{%- do kw_list.kw_list.extend(wrapped.split("\n")) -%}
+{# create repo and pypi names #}
+{%- set lib_touse = cookiecutter.library_name -%}
+
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "setuptools-scm",
+]
+
+[project]
+name = "circuitpython-{{ lib_touse }}"
+description = "{{ cookiecutter.library_description }}"
+version = "0.0.0+auto.0"
+readme = "README.rst"
+authors = [
+    {name = "JDM", email = "xxx@mailmeto.mozmail.com"}
+]
+urls = {Homepage = "https://github.com/jposada202020/CircuitPython_{{ lib_touse | upper }}"}
+keywords = [
+{% for kw_list_keyword in kw_list.default %}    "{{ kw_list_keyword }}",
+{% endfor -%}
+]
+license = {text = "MIT"}
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Embedded Systems",
+    "Topic :: System :: Hardware",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools]
+py-modules = ["{{ lib_touse }}"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+optional-dependencies = {optional = {file = ["optional_requirements.txt"]}}
