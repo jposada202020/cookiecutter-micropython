@@ -1,7 +1,7 @@
 {%- set repo_name = 'MicroPython_' -%}
 {%- set full_repo_name = "jposada202020" + "/" + repo_name -%}
 {%- set pypi_name = cookiecutter.library_name|lower|replace("_", "-")|replace(" ", "-") -%}
-{%- set docs_url = 'https://micropython-' + cookiecutter.library_name | lower | replace(" ", "-") | replace("_", "-") + '.readthedocs.io/' -%}
+{%- set docs_url = 'https://micropython-' + cookiecutter.library_name | lower | replace(" ", "-") | replace("_", "-") + '.readthedocs.io/en/latest/' -%}
 
 Introduction
 ============
