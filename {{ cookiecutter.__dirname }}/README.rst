@@ -34,6 +34,36 @@ Introduction
 .. todo:: Describe what the library does.
 {% endif %}
 
+Installing with mip
+====================
+To install using mpremote
+
+.. code-block:: shell
+
+    mpremote mip install github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}
+
+To install directly using a WIFI capable board
+
+.. code-block:: shell
+
+    mip install github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}
+
+
+Installing Library Examples
+============================
+
+If you want to install library examples:
+
+.. code-block:: shell
+
+    mpremote mip install github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/examples.json
+
+To install directly using a WIFI capable board
+
+.. code-block:: shell
+
+    mip install github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/examples.json
+
 
 Installing from PyPI
 =====================
