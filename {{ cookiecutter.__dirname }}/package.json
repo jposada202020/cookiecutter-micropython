@@ -1,0 +1,8 @@
+{
+  "urls": [
+    ["micropython_{{ cookiecutter.__libname }}/__init__.py", "github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/micropython_{{ cookiecutter.__libname }}/__init__.py"],
+    ["micropython_{{ cookiecutter.__libname }}/i2c_helpers.py", "github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/micropython_{{ cookiecutter.__libname }}/i2c_helpers.py"],
+    ["micropython_{{ cookiecutter.__libname }}/{{ cookiecutter.__libname }}.py", "github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/micropython_{{ cookiecutter.__libname }}/{{ cookiecutter.__libname }}.py"]
+  ],
+  "version": "0.1"
+}
