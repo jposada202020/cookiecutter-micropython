@@ -16,6 +16,10 @@ Introduction
     :alt: Documentation Status
 {% endif %}
 
+.. image:: https://img.shields.io/badge/micropython-Ok-purple.svg
+    :target: https://micropython.org
+    :alt: micropython
+
 .. image:: https://img.shields.io/pypi/v/micropython-{{ pypi_name }}.svg
     :alt: latest version on PyPI
     :target: https://pypi.python.org/pypi/micropython-{{ pypi_name }}
