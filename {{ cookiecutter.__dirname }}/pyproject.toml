@@ -44,7 +44,7 @@ classifiers = [
 dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools]
-py-modules = ["{{ lib_touse }}"]
+packages = ["{{ lib_touse }}"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
