@@ -45,7 +45,7 @@ class {{ cookiecutter.library_name | upper }}:
     .. code-block:: python
 
         from machine import Pin, I2C
-        import {{ cookiecutter.library_name}}
+        from micropython_{{ cookiecutter.library_name}} import {{ cookiecutter.library_name}}
 
     Once this is done you can define your `machine.I2C` object and define your sensor object
 
