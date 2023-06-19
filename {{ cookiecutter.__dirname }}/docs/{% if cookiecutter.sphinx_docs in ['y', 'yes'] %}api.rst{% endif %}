@@ -1,5 +1,5 @@
-{{ cookiecutter.library_name | upper }}
-=========================================
+MicroPython {{ cookiecutter.library_name | upper }} Library
+=====================================================================
 
 
 .. automodule:: micropython_{{ cookiecutter.library_name | lower | replace(" ", "_") }}
