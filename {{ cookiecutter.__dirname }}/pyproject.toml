@@ -44,7 +44,7 @@ classifiers = [
 dynamic = ["dependencies", "optional-dependencies"]
 
 [tool.setuptools]
-packages = ["{{ lib_touse }}"]
+packages = ["micropython_{{ lib_touse }}"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
