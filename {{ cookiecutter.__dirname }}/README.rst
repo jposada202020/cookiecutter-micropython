@@ -8,11 +8,7 @@ Introduction
 
 {% if cookiecutter.sphinx_docs | lower in ["yes", "y"] %}
 .. image:: https://readthedocs.org/projects/micropython-{{ cookiecutter.library_name | lower | replace(" ", "-") | replace("_", "-") }}/badge/?version=latest
-{%- if cookiecutter.target_bundle == 'Adafruit' %}
     :target: {{ docs_url }}
-{%- else %}
-    :target: {{ docs_url }}
-{%- endif %}
     :alt: Documentation Status
 {% endif %}
 
