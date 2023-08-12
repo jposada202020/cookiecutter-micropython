@@ -46,7 +46,7 @@ To install directly using a WIFI capable board
 
 .. code-block:: shell
 
-    mip install github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}
+    mip.install("github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}")
 
 
 Installing Library Examples
@@ -62,7 +62,7 @@ To install directly using a WIFI capable board
 
 .. code-block:: shell
 
-    mip install github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/examples.json
+    mip.install("github:jposada202020/MicroPython_{{ cookiecutter.__libname | upper }}/examples.json")
 
 
 Installing from PyPI

@@ -173,9 +173,6 @@ sphinx_immaterial_custom_admonitions = [
         "override": True,
     },
 ]
-python_type_aliases = {
-    "DigitalInOut": "digitalio.DigitalInOut",
-}
 
 object_description_options = [
     ("py:.*", dict(generate_synopses="first_sentence")),
@@ -192,16 +189,3 @@ html_static_path = ["_static"]
 # or fully qualified paths (eg. https://...)
 html_css_files = ["extra_css.css"]
 
-# -- Options for manual page output ---------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [
-    (
-        master_doc,
-        "MicroPython_{{ cookiecutter.library_name | replace(' ', '_')}}_Library",
-        "MicroPython {{ cookiecutter.library_name }} Library Documentation",
-        [author],
-        1,
-    ),
-]

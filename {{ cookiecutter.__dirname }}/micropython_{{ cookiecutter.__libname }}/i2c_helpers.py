@@ -8,12 +8,12 @@
 I2C Communications helpers
 
 
-* Author(s): Jose D. Montoya
+* Author: Jose D. Montoya
 
 Based on
 
-* adafruit_register.i2c_struct. Author(s): Scott Shawcroft
-* adafruit_register.i2c_bits.  Author(s): Scott Shawcroft
+* adafruit_register.i2c_struct. Author: Scott Shawcroft
+* adafruit_register.i2c_bits.  Author: Scott Shawcroft
 
 MIT License
 
@@ -39,10 +39,7 @@ SOFTWARE.
 
 """
 # pylint: disable=too-many-arguments
-try:
-    import struct
-except ImportError:
-    import ustruct as struct
+import struct
 
 
 class CBits:
@@ -69,7 +66,6 @@ class CBits:
         obj,
         objtype=None,
     ) -> int:
-
         mem_value = obj._i2c.readfrom_mem(obj._address, self.register, self.lenght)
 
         reg = 0
@@ -84,7 +80,6 @@ class CBits:
         return reg
 
     def __set__(self, obj, value: int) -> None:
-
         memory_value = obj._i2c.readfrom_mem(obj._address, self.register, self.lenght)
 
         reg = 0
@@ -117,7 +112,6 @@ class RegisterStruct:
         obj,
         objtype=None,
     ):
-
         if self.lenght <= 2:
             value = struct.unpack(
                 self.format,

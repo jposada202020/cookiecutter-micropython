@@ -11,7 +11,7 @@
 .. todo:: Describe what the library does.
 {% endif %}
 
-* Author(s): Jose D. Montoya
+* Author: Jose D. Montoya
 
 
 """

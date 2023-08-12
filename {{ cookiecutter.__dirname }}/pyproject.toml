@@ -1,6 +1,4 @@
-# SPDX-FileCopyrightText: Copyright (c) {% now 'utc', '%Y' %} Jose D. Montoya
-#
-# SPDX-License-Identifier: MIT
+
 
 {# put keywords into an iterable list, based on word wrapping #}
 {%- set kw_list = namespace(kw_list=[], default=["sensor", "micropython"]) -%}
@@ -12,27 +10,23 @@
 {# create repo and pypi names #}
 {%- set lib_touse = cookiecutter.library_name -%}
 
+# SPDX-FileCopyrightText: Copyright (c) {% now 'utc', '%Y' %} Jose D. Montoya
+#
+# SPDX-License-Identifier: MIT
 [build-system]
-requires = [
-    "setuptools",
-    "wheel",
-    "setuptools-scm",
-]
+requires = ["setuptools", "wheel", "setuptools-scm"]
 
 [project]
-name = "micropython-{{ lib_touse }}"
-description = "{{ cookiecutter.library_description }}"
-version = "0.0.0+auto.0"
-readme = "README.rst"
-authors = [
-    {name = "JDM", email = "xxyx@mailmeto.mozmail.com"}
-]
-urls = {Homepage = "https://github.com/jposada202020/MicroPython_{{ lib_touse | upper }}"}
 keywords = [
 {% for kw_list_keyword in kw_list.default %}    "{{ kw_list_keyword }}",
 {% endfor -%}
-]
-license = {text = "MIT"}
+]name = "micropython-{{ lib_touse }}"
+description = "{{ cookiecutter.library_description }}"
+version = "0.0.0+auto.0"
+readme = "README.rst"
+authors = [{ name = "JDM", email = "xxyx@mailmeto.mozmail.com" }]
+urls = { Homepage = "https://github.com/jposada202020/MicroPython_{{ lib_touse | upper }}" }
+license = { text = "MIT" }
 classifiers = [
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries",
@@ -47,4 +41,4 @@ dynamic = ["dependencies", "optional-dependencies"]
 packages = ["micropython_{{ lib_touse }}"]
 
 [tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
+dependencies = { file = ["requirements.txt"] }
